@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Digital Clock</title>
+        <link href="https://fonts.cdnfonts.com/css/lcd" rel="stylesheet">
+
+        <style>    
+            /* apply a background image to the body */
+            body {
+                background-color: black;
+                height: 100%;
+                width: 100%;
+            }
+        
+            #clock {
+                /* position the clock in the center of the page */
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            
+                font-size: 800px;
+                font-family: "digitalism";
+                color: red;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="clock"></div>
+
+        <script>
+            function updateClock() {
+            // get the current time
+            const date = new Date();
+            let hours = date.getHours();
+            let minutes = date.getMinutes();
+
+            if (hours < 10) hours = "0" + hours;
+            if (minutes < 10) minutes = "0" + minutes;
+
+            // get the clock div element
+            var clockDiv = document.getElementById('clock');
+
+            // set the clock div's text content to the time string
+            clockDiv.textContent = `${hours}:${minutes}`;
+            }
+
+            // update the clock every second
+            setInterval(updateClock, 1000);
+        </script>
+    </body>
+</html>
